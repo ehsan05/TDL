@@ -1,0 +1,204 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  min-height: 100vh;
+  background: linear-gradient(90deg, rgba(15, 77, 113, 0.963), rgb(7, 31, 66));
+  padding: 20px;
+}
+
+main {
+  background-color: aliceblue;
+  width: 300px;
+  max-height: 500px; /* Changed to max-height for better responsiveness */
+  height: 400px;
+  margin-top: 50px;
+  border: none;
+  border-radius: 10px 10px 0 0;
+ 
+  box-shadow: 2px 4px 10px rgb(43, 43, 43);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Prevent main container from scrolling */
+}
+
+header {
+  width: 100%;
+  background-color: brown;
+  padding: 12px 5px;
+  border-radius: px 8px 0 0;
+  font-size: 7px;
+  font-weight: 600;
+  color: white;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.body-container {
+  display: flex;
+  width: 100%;
+  padding: 15px;
+  gap: 5px;
+  flex-shrink: 0; /* Prevent .body-container from shrinking */
+}
+
+.body-container > input {
+  flex: 1;
+  width: 60%;
+  font-size: 0.6rem;
+  height: 1.5rem;
+  padding: 0 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.body-container > input:focus {
+  outline: 2px solid rgba(29, 109, 156, 0.5);
+}
+
+.body-container > button {
+  font-size: 0.6rem;
+  font-weight: 500;
+  padding: 0 12px;
+  background-color: rgb(6, 164, 6);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.body-container > button:hover {
+  background-color: rgb(5, 140, 5);
+  transform: translateY(-1px);
+}
+
+/* Scrollable tasks container */
+.tasks {
+  flex: 1; /* Take remaining space */
+  overflow-y: auto; /* Enable vertical scroll */
+  padding: 0 15px;
+  margin: 0;
+  scrollbar-width: thin; /* For Firefox */
+}
+
+.tasks > li {
+  padding: 12px 8px;
+  font-size: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-top: 1px solid rgba(136, 136, 136, 0.3);
+  width: 100%;
+  position: relative;
+  transition: background 0.2s ease;
+  list-style-type: none; /* Remove bullet points */
+}
+
+.tasks > li:hover {
+  background-color: rgba(240, 248, 255, 0.7);
+}
+
+.tasks > li:last-child {
+  border-bottom: 1px solid rgba(136, 136, 136, 0.3);
+}
+
+/* Modern Checkbox Styling */
+.tasks li input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border: 2px solid rgb(7, 164, 12);
+  border-radius: 6px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+  flex-shrink: 0; /* Prevent checkbox from shrinking */
+}
+
+.tasks li input[type="checkbox"]:checked {
+  background-color: rgb(59, 178, 13);
+  border-color: rgb(13, 171, 47);
+}
+
+.tasks li input[type="checkbox"]:checked::after {
+  content: "✓";
+  position: absolute;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.tasks li input[type="checkbox"]:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 0 2px rgba(174, 46, 14, 0.2);
+}
+
+/* Delete Button Styling */
+.tasks li > button {
+  position: absolute;
+  right: 5px;
+  width: 15px;
+  height: 16px;
+  color: red;
+  background-color: rgb(158, 4, 4);
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+}
+
+.tasks li > button:hover {
+  background-color: rgb(200, 0, 0);
+  transform: scale(1.1);
+}
+
+.tasks li > button::before {
+
+  font-size: 12px;
+}
+
+footer {
+  background-color: brown;
+  height: 15px;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 2px 4px 10px rgb(43, 43, 43);
+}
+
+/* Scrollbar Styling */
+.tasks::-webkit-scrollbar {
+  width: 6px;
+}
+
+.tasks::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 3px;
+}
+
+.tasks::-webkit-scrollbar-thumb {
+  background-color: rgba(174, 46, 14, 0.4);
+  border-radius: 3px;
+}
+
+.tasks::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(174, 46, 14, 0.6);
+}
